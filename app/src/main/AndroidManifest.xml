@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Danhbadienthoai">
-        <activity android:name=".search.SearchProduct"></activity>
+        <activity android:name=".ChangePasswordUser"></activity>
+        <activity android:name=".Product_chitiet" />
+        <activity android:name=".search.SearchProduct" />
         <activity android:name=".LoginAc.RegisActi.RegisActivity" />
         <activity android:name=".LoginAc.Login">
             <intent-filter>

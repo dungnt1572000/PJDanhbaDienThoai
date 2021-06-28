@@ -17,6 +17,8 @@ public class ViewPager2Adapter extends FragmentStateAdapter {
         super(fragmentActivity);
     }
 
+    public FragmentProduct fragmentProduct = new FragmentProduct();
+
     @NonNull
     @Override
     public Fragment createFragment(int position) {
@@ -24,7 +26,7 @@ public class ViewPager2Adapter extends FragmentStateAdapter {
             case 0:
                 return new FragmentHome();
             case 1:
-                return new FragmentProduct();
+                return fragmentProduct;
             case 2:
                 return new FragmentUser();
             default:

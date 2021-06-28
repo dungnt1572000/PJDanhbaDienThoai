@@ -33,6 +33,7 @@ public class Login extends AppCompatActivity {
     ConstraintLayout constraintLayout;
     private final int REQUEST_CODE = 1;
     List<Users> listuser = new ArrayList<>();
+    public static Users curusers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,7 @@ public class Login extends AppCompatActivity {
                         ) {
                             kcheck++;
                             Intent intent = new Intent(Login.this, MainActivity.class);
+                            curusers = new Users(username,userpass);
                             startActivity(intent);
                         }
                     }

@@ -11,6 +11,22 @@ public class Product  implements Serializable {
     int id;
     String name;
     String url;
+    int value;
+
+    public Product(int id, String name, String url, int value) {
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        this.value = value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
 
     public int getId() {
         return id;
@@ -36,10 +52,6 @@ public class Product  implements Serializable {
         this.url = url;
     }
 
-    public Product(int id, String name, String url) {
-        this.id = id;
-        this.name = name;
-        this.url = url;
-    }
+
 
 }

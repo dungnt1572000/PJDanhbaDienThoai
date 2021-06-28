@@ -47,12 +47,12 @@ public class RegisActivity extends AppCompatActivity {
                         editPass1.getText().toString().trim().equals(editPass2.getText().toString().trim())){
                     String nameuser = editUser.getText().toString().trim();
                     for (int i = 0 ; i< list.size() ; i++){
-                        if(nameuser.equalsIgnoreCase(list.get(i).getUsername())){
+                        if(nameuser.equals(list.get(i).getUsername())){
                             k = 1;
                         }
                     }
                     if (k==1){
-                        txtCheck.setText("Da ton tai Username");
+                        txtCheck.setText("Username existed");
                         txtCheck.setVisibility(View.VISIBLE
                         );
                     }

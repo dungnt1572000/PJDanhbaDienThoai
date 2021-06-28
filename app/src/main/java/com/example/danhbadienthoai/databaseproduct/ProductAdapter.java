@@ -27,6 +27,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         this.list = list;
         notifyDataSetChanged();
     }
+    // fragment produc t dau
+    // la sao ? ten fragment FragmentProduct
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,9 +49,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
 
+    // co 1 van de, la luc framgnet product chua khoi tao thi no k nhan su kien
+    // t tuong chay MainActy la no khoi tao san r chu k , viewpager chi khoi tao 1 fragment dau tien the tuc la minh vao fragment1 no ko khoi tao fragment 2 a
+    // ? the t ms bao check xẻm da khoi tao chua
 
-
-    public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ProductViewHolder extends RecyclerView.ViewHolder{
         ImageView img;
         TextView txtname,txtid;
         CardView cardView;
@@ -59,12 +63,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             txtname = (TextView) itemView.findViewById(R.id.product_ten);
             txtid = (TextView) itemView.findViewById(R.id.product_id);
             cardView = (CardView) itemView.findViewById(R.id.itemproduct_cardView);
-            cardView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            chitietProduct.Clicktosee(list.get(getAdapterPosition()));
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        chitietProduct.Clicktosee(list.get(getAdapterPosition()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
     }
 }

@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.danhbadienthoai.MainActivity;
+import com.example.danhbadienthoai.Product_chitiet;
 import com.example.danhbadienthoai.R;
 import com.example.danhbadienthoai.databaseproduct.ChitietProduct;
 import com.example.danhbadienthoai.databaseproduct.DataLocal;
@@ -83,7 +84,7 @@ public class FragmentHome extends Fragment implements ChitietProduct{
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext(),RecyclerView.VERTICAL,false);
         rclView.setLayoutManager(linearLayoutManager);
         rclView.setAdapter(productAdapter);
-        DataLocal.getInstance(getContext()).productDAO().getListProduct();
+//        DataLocal.getInstance(getContext()).productDAO().getListProduct();
         rclView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -153,14 +154,14 @@ public class FragmentHome extends Fragment implements ChitietProduct{
     }
     public List<Product> getList(){
         List<Product> list = new ArrayList<>();
-        list.add(new Product(1,"IPhone12 Pro Max","https://image.thanhnien.vn/1080/uploaded/nthanhluan/2020_10_14/1_foyn.jpg"));
-        list.add(new Product(2,"Note 20","https://cdn.tgdd.vn/Products/Images/42/234315/samsung-galaxy-a32-600x600-600x600.jpg"));
-        list.add(new Product(3,"Galaxy A52","https://cdn.tgdd.vn/Products/Images/42/235440/samsung-galaxy-a52-5g-thumb-blue-600x600-200x200.jpg"));
-        list.add(new Product(4,"XiaoMi RedMi8","https://cdn.tgdd.vn/Products/Images/42/233130/xiaomi-redmi-9t-6gb-110621-080650-600x600.jpg"));
-        list.add(new Product(5,"Xiaomi RedMi 10","https://cdn.tgdd.vn/Products/Images/42/229228/xiaomi-redmi-note-10-pro-thumb-xam-600x600-600x600.jpg"));
-        list.add(new Product(6,"Nokia 5.3","https://hc.com.vn/i/ecommerce/media/GS.004470_FEATURE_63272.jpg"));
-        list.add(new Product(7,"Huawei Nove3i","https://fptshop.com.vn/Uploads/images/2015/Tin-Tuc/QuanLNH2/huawei-nova-3i-mo-ta-1.jpg"));
-        list.add(new Product(8,"Huawei P30","https://cdn1.viettelstore.vn/images/Product/ProductImage/medium/676122753.jpeg"));
+        list.add(new Product(1,"IPhone12 Pro Max","https://image.thanhnien.vn/1080/uploaded/nthanhluan/2020_10_14/1_foyn.jpg",5000));
+        list.add(new Product(2,"Note 20","https://cdn.tgdd.vn/Products/Images/42/234315/samsung-galaxy-a32-600x600-600x600.jpg",4500));
+        list.add(new Product(3,"Galaxy A52","https://cdn.tgdd.vn/Products/Images/42/235440/samsung-galaxy-a52-5g-thumb-blue-600x600-200x200.jpg",6000));
+        list.add(new Product(4,"XiaoMi RedMi8","https://cdn.tgdd.vn/Products/Images/42/233130/xiaomi-redmi-9t-6gb-110621-080650-600x600.jpg",8000));
+        list.add(new Product(5,"Xiaomi RedMi 10","https://cdn.tgdd.vn/Products/Images/42/229228/xiaomi-redmi-note-10-pro-thumb-xam-600x600-600x600.jpg",35000));
+        list.add(new Product(6,"Nokia 5.3","https://hc.com.vn/i/ecommerce/media/GS.004470_FEATURE_63272.jpg",45000));
+        list.add(new Product(7,"Huawei Nove3i","https://fptshop.com.vn/Uploads/images/2015/Tin-Tuc/QuanLNH2/huawei-nova-3i-mo-ta-1.jpg",6000));
+        list.add(new Product(8,"Huawei P30","https://cdn1.viettelstore.vn/images/Product/ProductImage/medium/676122753.jpeg",2000));
         return list;
     }
     public List<Photos> getListPhotos(){
@@ -175,6 +176,10 @@ public class FragmentHome extends Fragment implements ChitietProduct{
 
     @Override
     public void Clicktosee(Product product) {
-
+        Intent intent = new Intent(getContext(), Product_chitiet.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("sanpham",product);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_on_secondary"
-    tools:context=".FragmentABC.FragmentUser">
+    android:orientation="vertical"
+    tools:context=".FragmentABC.FragmentUser"
+    android:background="@drawable/backgrounduserfragment"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_margin="30dp"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/avataruser"/>
     <TextView
+        android:layout_margin="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/usertaikhoan"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:text="Ten Tai Khoan: "/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="40dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="Mat khau:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:text=""
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:id="@+id/userpassword"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Change Password"
+        android:id="@+id/changepass"
+        />
+</LinearLayout>

@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.danhbadienthoai.FragmentABC.FragmentHome;
 import com.example.danhbadienthoai.FragmentABC.FragmentProduct;
 import com.example.danhbadienthoai.MainActivity;
+import com.example.danhbadienthoai.Product_chitiet;
 import com.example.danhbadienthoai.R;
 import com.example.danhbadienthoai.databaseproduct.ChitietProduct;
 import com.example.danhbadienthoai.databaseproduct.DataLocal;
@@ -68,7 +69,7 @@ public class SearchProduct extends AppCompatActivity implements ChitietProduct{
             try {
                 mlist = DataLocal.getInstance(this).productDAO().searchList(Integer.parseInt(stringname.trim()));
             }catch(Exception e) {
-                mlist = DataLocal.getInstance(this).productDAO().searchList(stringname.trim());
+                mlist = DataLocal.getInstance(this).productDAO().searchListString((stringname.trim()));
             }
         }
         prd = new ProductAdapter(mlist, this);
@@ -83,12 +84,7 @@ public class SearchProduct extends AppCompatActivity implements ChitietProduct{
         imgbuttonsearch = (ImageView) findViewById(R.id.imgbuttonIconsearch);
         rclSearch = (RecyclerView) findViewById(R.id.rclViewSearch);
     }
-    public void Clicktosee(Product product){
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        FragmentProduct fragmentProduct = new FragmentProduct();
-        fragmentProduct.nhanData(product);
 
-    }
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
                 (InputMethodManager) activity.getSystemService(
@@ -119,5 +115,14 @@ public class SearchProduct extends AppCompatActivity implements ChitietProduct{
                 setupUI(innerView);
             }
         }
+    }
+
+    @Override
+    public void Clicktosee(Product product) {
+        Intent intent = new Intent(this, Product_chitiet.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("sanpham",product);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

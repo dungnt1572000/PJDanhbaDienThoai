@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:id="@+id/regis_layout_parent"
     android:weightSum="14"
+    android:background="@drawable/backgroundregis"
 
     tools:context=".LoginAc.RegisActi.RegisActivity">
     <TextView
@@ -100,6 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:backgroundTint="@color/design_default_color_error"
         android:text="Dang ki"/>
         <Button
             android:id="@+id/btBack"
@@ -108,6 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="@color/black"
             android:text="Back"/>
     </LinearLayout>
 

@@ -13,7 +13,7 @@ public interface ProductDAO {
     @Query("select * from product")
     List<Product> getListProduct();
     @Query("select * from product where name LIKE '%' || :productname || '%' ")
-    List<Product> searchList(String productname);
+    List<Product> searchListString(String productname);
     @Query("select * from product where id = :proid")
     List<Product> searchList(int proid);
 }
